@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "113302724618",
+    "project_id": "firestoreapp-3f4cb",
+    "storage_bucket": "firestoreapp-3f4cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113302724618:android:88068263cd2ae9c6d5fff3",
+        "android_client_info": {
+          "package_name": "com.preritrajput.firestoreapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113302724618-m3589lg7a5kh1lmbbmvodhplmt6qfcdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmLtlsayZgd7wdVKenkcyFrh6OCCebDQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113302724618-m3589lg7a5kh1lmbbmvodhplmt6qfcdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

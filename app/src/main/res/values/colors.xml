@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#7289da</color>
+    <color name="purple_500">#ffffff</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="black_trans80">#50000000</color>
+    <color name="discord">#2c2f33</color>
+    <color name="discordblue">#7289da</color>
+    <color name="textColor">#2E3E5C</color>
+    <color name="transparent">#002E3E5C</color>
+    <color name="grey">#888888</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
