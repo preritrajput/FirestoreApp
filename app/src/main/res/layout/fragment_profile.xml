@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/discord"
+    android:background="@color/white"
     tools:context=".ProfileFragment">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="110dp"
-        app:civ_border_color="@color/discord"
+        app:civ_border_color="@color/white"
         app:civ_border_width="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/muli_bold"
         android:text=""
-        android:textColor="@color/white"
+        android:textColor="@color/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
@@ -86,7 +86,7 @@
         android:src="@drawable/ic_baseline_settings_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:tint="@color/discord" />
+        app:tint="@color/white" />
 
 
     <RelativeLayout
@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="Edit Profile"
-            android:textColor="@color/discord"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -114,7 +114,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerInParent="true"
-            android:indeterminateTint="@color/discord"
+            android:indeterminateTint="@color/white"
             android:visibility="invisible" />
 
     </RelativeLayout>
@@ -129,7 +129,7 @@
         android:src="@drawable/ic_instagram"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/white" />
+        app:tint="@color/grey" />
 
     <ImageView
         android:id="@+id/facebook"
@@ -140,7 +140,7 @@
         android:src="@drawable/ic_facebook"
         app:layout_constraintStart_toEndOf="@+id/insta"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/white" />
+        app:tint="@color/grey" />
 
     <ImageView
         android:id="@+id/twitter"
@@ -151,22 +151,22 @@
         android:src="@drawable/ic_twitter"
         app:layout_constraintStart_toEndOf="@+id/facebook"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/white" />
+        app:tint="@color/grey" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:layout_marginTop="20dp"
-        android:background="#27131313"
+        android:background="#27BFBFBF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insta" />
 
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="70dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

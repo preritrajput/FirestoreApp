@@ -20,9 +20,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -34,7 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
     TextView textView,error;
 
     FirebaseAuth firebaseAuth;
-    FirebaseFirestore db;
+    FirebaseDatabase db;
     FirebaseUser user;
 
     @Override
@@ -48,7 +51,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
         user=firebaseAuth.getCurrentUser();
-        db=FirebaseFirestore.getInstance();
+        db= FirebaseDatabase.getInstance();
 
         name=findViewById(R.id.signup_email);
         phone=findViewById(R.id.change_phone);
@@ -57,21 +60,22 @@ public class EditProfileActivity extends AppCompatActivity {
         textView=findViewById(R.id.text);
         error=findViewById(R.id.error);
 
-        db.collection("Users").whereEqualTo("email",user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        Query query = db.getReference("Users").orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                for(QueryDocumentSnapshot doc:task.getResult())
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren())
                 {
-                    String name1=""+doc.getString("name");
-                    String phone1=""+doc.getString("phone");
+                    String name1=""+ds.child("name").getValue();
+                    String phone1=""+ds.child("phone").getValue();
 
                     name.setText(name1);
                     phone.setText(phone1);
                 }
             }
-        }).addOnFailureListener(new OnFailureListener() {
+
             @Override
-            public void onFailure(@NonNull Exception e) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
@@ -90,7 +94,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     HashMap<String, Object> result= new HashMap<>();
                     result.put("name", name1);
                     result.put("phone", phone1);
-                    db.collection("Users").document(user.getUid()).update(result).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.getReference("Users").child(user.getUid()).updateChildren(result).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             pd.setVisibility(View.INVISIBLE);

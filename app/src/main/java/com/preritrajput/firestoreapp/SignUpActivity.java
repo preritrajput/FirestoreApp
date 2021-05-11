@@ -35,7 +35,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +52,7 @@ public class SignUpActivity extends AppCompatActivity {
     ProgressBar pd;
     TextView textView,error;
     private FirebaseAuth mAuth;
-    FirebaseFirestore db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,6 @@ public class SignUpActivity extends AppCompatActivity {
         mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
 
         mAuth=FirebaseAuth.getInstance();
-        db=FirebaseFirestore.getInstance();
 
         name=findViewById(R.id.user_name);
         email=findViewById(R.id.signup_email);
@@ -125,7 +125,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         String email = user.getEmail();
                                         String  uid= user.getUid();
 
-                                        Map<Object,String> hashMap= new HashMap<>();
+                                        HashMap<Object,String> hashMap= new HashMap<>();
                                         hashMap.put("email",email);
                                         hashMap.put("uid",uid);
                                         hashMap.put("name",uname);
@@ -133,7 +133,8 @@ public class SignUpActivity extends AppCompatActivity {
                                         hashMap.put("image","");
                                         hashMap.put("cover","");
 
-                                        db.collection("Users").document(uid).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        DatabaseReference db=FirebaseDatabase.getInstance().getReference("Users");
+                                        db.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
@@ -236,7 +237,8 @@ public class SignUpActivity extends AppCompatActivity {
                                 hashMap.put("image","");
                                 hashMap.put("cover","");
 
-                                db.collection("Users").document(uid).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                DatabaseReference db=FirebaseDatabase.getInstance().getReference("Users");
+                                db.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         pd.setVisibility(View.INVISIBLE);

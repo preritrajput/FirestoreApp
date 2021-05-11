@@ -37,14 +37,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -76,7 +74,7 @@ public class ProfileFragment extends Fragment {
     ImageView settings;
 
     FirebaseUser user;
-    CollectionReference collectionReference;
+    DatabaseReference collectionReference;
 
     ProgressBar pd;
     TextView  text;
@@ -84,7 +82,7 @@ public class ProfileFragment extends Fragment {
     Uri image_uri;
     String profileOrCoverPhoto;
 
-    FirebaseFirestore db;
+    FirebaseDatabase db;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -96,10 +94,10 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view= inflater.inflate(R.layout.fragment_profile, container, false);
         firebaseAuth=FirebaseAuth.getInstance();
-        db=FirebaseFirestore.getInstance();
+        db=FirebaseDatabase.getInstance();
         user=firebaseAuth.getCurrentUser();
         storageReference=firebaseStorage.getInstance().getReference();
-        collectionReference=db.collection("Users");
+        collectionReference=db.getReference("Users");
 
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         storagePermissions = new String[]{ Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -114,17 +112,17 @@ public class ProfileFragment extends Fragment {
         pd=view.findViewById(R.id.progressBar);
         text=view.findViewById(R.id.text);
 
-
-        db.collection("Users").whereEqualTo("email",user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        Query query = collectionReference.orderByChild("email").equalTo(user.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                for(QueryDocumentSnapshot doc:task.getResult())
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds : snapshot.getChildren())
                 {
-                    String name=""+doc.getString("name");
-                    String email=""+doc.getString("email");
-                    String phone=""+doc.getString("phone");
-                    String dp1=""+doc.getString("image");
-                    String cover1=""+doc.getString("cover");
+                    String name=""+ds.child("name").getValue();
+                    String email=""+ds.child("email").getValue();
+                    String phone=""+ds.child("phone").getValue();
+                    String dp1=""+ds.child("image").getValue();
+                    String cover1=""+ds.child("cover").getValue();
 
                     nameTv.setText(name);
                     emailTv.setText(email);
@@ -153,13 +151,12 @@ public class ProfileFragment extends Fragment {
                     }
                 }
             }
-        }).addOnFailureListener(new OnFailureListener() {
+
             @Override
-            public void onFailure(@NonNull Exception e) {
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
 
 
         edit.setOnClickListener(new View.OnClickListener() {
@@ -406,7 +403,7 @@ public class ProfileFragment extends Fragment {
 
                     results.put(profileOrCoverPhoto,downloadUri.toString());
 
-                    db.collection("Users").document(user.getUid()).update(results).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    db.getReference("Users").child(user.getUid()).updateChildren(results).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             pd.setVisibility(View.INVISIBLE);

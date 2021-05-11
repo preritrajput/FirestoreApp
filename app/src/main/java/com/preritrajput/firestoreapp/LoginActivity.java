@@ -35,7 +35,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar pd;
     TextView textView,error;
     private FirebaseAuth mAuth;
-    FirebaseFirestore db;
     String personName;
 
     @Override
@@ -69,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
 
         mAuth=FirebaseAuth.getInstance();
-        db= FirebaseFirestore.getInstance();
 
         name=findViewById(R.id.user_name);
         email=findViewById(R.id.signup_email);
@@ -205,7 +204,8 @@ public class LoginActivity extends AppCompatActivity {
                                 hashMap.put("image","");
                                 hashMap.put("cover","");
 
-                                db.collection("Users").document(uid).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                DatabaseReference db= FirebaseDatabase.getInstance().getReference("Users");
+                                db.child(uid).setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         pd.setVisibility(View.INVISIBLE);

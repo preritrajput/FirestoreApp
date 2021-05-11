@@ -19,7 +19,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
@@ -29,7 +28,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     TextView textView,error;
 
     FirebaseAuth firebaseAuth;
-    FirebaseFirestore db;
     FirebaseUser user;
 
     @Override
@@ -43,7 +41,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
         user=firebaseAuth.getCurrentUser();
-        db=FirebaseFirestore.getInstance();
 
         name=findViewById(R.id.signup_email);
         phone=findViewById(R.id.change_phone);
