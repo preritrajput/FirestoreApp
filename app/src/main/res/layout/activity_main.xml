@@ -7,18 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="100dp"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_marginStart="32dp"
         android:layout_marginTop="120dp"
         android:layout_marginEnd="32dp"
-        android:src="@drawable/discordlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_iconmonstr_note_33"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AmiDocs"
+            android:fontFamily="@font/muli_extrabold"
+            android:textColor="@color/white"
+            android:textSize="40sp"/>
+
+    </LinearLayout>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/anim"
@@ -26,10 +45,11 @@
         android:layout_height="250dp"
         android:layout_gravity="center"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/login" />
@@ -39,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Welcome to Bubble"
+        android:text="Welcome to AmiDocs"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -54,7 +74,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="20dp"
-        android:text="Join over 100 million people who use Bubble to talk with communities and friends."
+        android:text="Join over 100 million people who use AmiDocs to create your Amity Lab Files."
         android:textAlignment="center"
         android:textColor="@color/grey"
         android:textSize="14sp"

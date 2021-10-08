@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,172 +7,466 @@
     android:background="@color/white"
     tools:context=".ProfileFragment">
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/main1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:background="@color/discordblue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/muli_bold"
-        android:text=""
-        android:textColor="@color/textColor"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Bubbler"
-        android:textColor="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text=""
-        android:textColor="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text=""
-        android:textColor="@color/grey"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <ImageView
-        android:id="@+id/settings"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/rounded_button"
-        android:padding="5dp"
-        android:src="@drawable/ic_baseline_settings_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:tint="@color/white" />
-
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="110dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/rounded_button"
-        app:layout_constraintEnd_toStartOf="@+id/settings"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="110dp"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Edit Profile"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/muli_bold"
+            android:text=""
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerInParent="true"
-            android:indeterminateTint="@color/white"
-            android:visibility="invisible" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:text="Amity University, Noida"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-    <ImageView
-        android:id="@+id/insta"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/ic_instagram"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/grey" />
-
-    <ImageView
-        android:id="@+id/facebook"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/ic_facebook"
-        app:layout_constraintStart_toEndOf="@+id/insta"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/grey" />
-
-    <ImageView
-        android:id="@+id/twitter"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:src="@drawable/ic_twitter"
-        app:layout_constraintStart_toEndOf="@+id/facebook"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:tint="@color/grey" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="20dp"
-        android:background="#27BFBFBF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insta" />
+        <ImageView
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:id="@+id/settings"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/rounded_button"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_settings_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:tint="@color/white" />
 
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/app" />
+        <RelativeLayout
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:id="@+id/relativeLayout2"
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/rounded_button"
+            app:layout_constraintEnd_toStartOf="@+id/settings"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Edit Profile"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/white"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/view11"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="20dp"
+            android:background="#27BFBFBF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+
+        <RelativeLayout
+            app:layout_constraintTop_toBottomOf="@id/view11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_iconmonstr_note_33_filled"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A M I D O C S"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="25dp"
+                android:textSize="16sp"
+                android:textColor="@color/discordblue"
+                android:fontFamily="@font/muli_bold"/>
+
+            <View
+                android:layout_marginTop="20dp"
+                android:id="@+id/view1"
+                android:layout_below="@id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_below="@id/view1"
+                android:id="@+id/linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:id="@+id/feedback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/set"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/set"/>
+
+                    <TextView
+                        android:layout_toEndOf="@id/set"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:text="Give us a feedback"/>
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logout"
+                        app:tint="@color/textColor"
+                        android:rotation="180"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your feedback is very crucial for us. It helps us to improve in future and make your experience even more richer and smoother. It wll only take 2 minutes to fill up the feedback, thank you."
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view"
+                android:layout_below="@id/linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/linear_layout1"
+                android:layout_below="@id/view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/report"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/rate"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/bug"/>
+
+                    <TextView
+                        android:layout_toEndOf="@id/rate"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:text="Report a bug"/>
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logout"
+                        app:tint="@color/textColor"
+                        android:rotation="180"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A bug reported by you can a make an Impact. We will immediately work on that bug and provide a lag free App experience."
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_below="@id/linear_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/linear_layout2"
+                android:layout_below="@id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/rate1"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/info"/>
+
+                    <TextView
+                        android:layout_toEndOf="@id/rate1"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:text="About Us"/>
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logout"
+                        app:tint="@color/textColor"
+                        android:rotation="180"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Team, Social links"
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view3"
+                android:layout_below="@id/linear_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/linear_layout3"
+                android:layout_below="@id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/rate3"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/contact"/>
+
+                    <TextView
+                        android:layout_toEndOf="@id/rate3"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:text="Contact Us"/>
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logout"
+                        app:tint="@color/textColor"
+                        android:rotation="180"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_marginTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Our contact information, Social links"
+                    android:textColor="@color/grey"
+                    android:textSize="11sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view4"
+                android:layout_below="@id/linear_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+            <LinearLayout
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:id="@+id/linear_layout4"
+                android:layout_below="@id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rateUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/rate4"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ratestar"/>
+
+                    <TextView
+                        android:layout_toEndOf="@id/rate4"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColor"
+                        android:textSize="15sp"
+                        android:text="Rate Us on Play store"/>
+
+                    <ImageView
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/logout"
+                        app:tint="@color/textColor"
+                        android:rotation="180"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view5"
+                android:layout_below="@id/linear_layout4"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F4F5F7"/>
+
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

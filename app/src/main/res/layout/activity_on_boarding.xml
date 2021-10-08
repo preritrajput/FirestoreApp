@@ -48,7 +48,7 @@
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:text="Get Started"
-            android:textColor="@color/discord"
+            android:textColor="@color/white"
             android:textAllCaps="false"
             android:background="@drawable/rounded_button"
             android:visibility="invisible"/>
@@ -70,7 +70,7 @@
             android:layout_centerHorizontal="true"
             android:text="Next"
             android:textAllCaps="false"
-            android:textColor="@color/discord"
+            android:textColor="@color/white"
             android:background="@drawable/rounded_button" />
 
     </RelativeLayout>

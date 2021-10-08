@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/back"
+    android:layout_height="match_parent"
+    tools:context=".SuccessActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="47dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:onClick="back"
+            android:id="@+id/back"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/logout"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/back"
+            android:fontFamily="@font/muli_bold"
+            android:text="Successful"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relativeLayout5" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/relativeLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_marginTop="70dp"
+            android:id="@+id/lottie"
+            android:layout_width="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_height="250dp"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/share" />
+
+        <TextView
+            android:id="@+id/y"
+            android:layout_below="@id/lottie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/muli_bold"
+            android:layout_centerHorizontal="true"
+            android:text="Download Complete"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:translationY="-30dp" />
+
+        <TextView
+            android:layout_below="@id/y"
+            android:id="@+id/x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Your File Downloaded Successfully"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:translationY="-30dp" />
+
+        <TextView
+            android:layout_below="@id/x"
+            android:id="@+id/p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/muli_semibold"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:translationY="-30dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_below="@id/p"
+            android:id="@+id/open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/discordblue"
+            android:text="O P E N   F I L E"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:translationY="-30dp"
+            app:cornerRadius="40dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:elevation="10dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/discordblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:drawableStart="@drawable/ic_baseline_share_24"
+            android:id="@+id/text"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="S H A R E"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/white"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

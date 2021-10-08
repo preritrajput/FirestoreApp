@@ -31,6 +31,8 @@
         android:background="@color/grey"/>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/change_dp"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
@@ -58,6 +60,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/change_cover"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
@@ -85,6 +89,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/change_name"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
@@ -103,7 +109,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Change name and phone"
+            android:text="Change name and Enrollment No."
             android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_gravity="center"
@@ -111,32 +117,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/cahnge_social_handles"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            android:layout_height="24dp"
-            app:tint="@color/white"
-            android:src="@drawable/ic_bottom_social"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Change social handles"
-            android:textSize="15sp"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"/>
-
-    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp"/>

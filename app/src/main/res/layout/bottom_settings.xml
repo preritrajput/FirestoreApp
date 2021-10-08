@@ -27,6 +27,8 @@
 
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/changePass"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
@@ -53,6 +55,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/duration"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
@@ -79,6 +83,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/logout"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:fillColor="@color/discordblue"
+      android:pathData="M7,11l-2.5,-2 -2.5,2v-11h5v11zM17,12h-8v1h8v-1zM9,0v2h11v11.543c0,4.107 -6,2.457 -6,2.457s1.518,6 -2.637,6h-7.363v-10.039l-2,1.601v10.438h10.189c3.163,0 9.811,-7.223 9.811,-9.614v-14.386h-13zM17,6h-8v1h8v-1zM17,9h-8v1h8v-1z"/>
+</vector>

@@ -17,7 +17,7 @@ android {
 
     defaultConfig {
         applicationId "com.preritrajput.firestoreapp"
-        minSdkVersion 21
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -36,6 +36,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
+    allprojects {
+        configurations.all {
+            resolutionStrategy.force 'org.objenesis:objenesis:2.6'
+        }
+    }
+
 }
 
 dependencies {
@@ -54,6 +63,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.7.0'
     testImplementation 'junit:junit:4.+'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+    implementation 'javax.xml.stream:stax-api:1.0'
+    implementation 'com.fasterxml:aalto-xml:1.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

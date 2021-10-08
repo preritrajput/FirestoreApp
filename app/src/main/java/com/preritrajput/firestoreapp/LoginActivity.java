@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.black_trans80));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.transparent));
         setContentView(R.layout.activity_login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -211,9 +211,7 @@ public class LoginActivity extends AppCompatActivity {
                                         pd.setVisibility(View.INVISIBLE);
                                         textView.setVisibility(View.VISIBLE);
                                         google.setClickable(true);
-                                        Intent intent = new Intent(LoginActivity.this,DashboardActivity.class);
-                                        startActivity(intent);
-                                        finish();
+
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

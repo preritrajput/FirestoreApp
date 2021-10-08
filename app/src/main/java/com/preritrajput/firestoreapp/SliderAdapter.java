@@ -30,16 +30,16 @@ public class SliderAdapter extends PagerAdapter {
 
 
     String[] headings ={
-            "Connect with friends",
-            "Chit chat option",
-            "Share your memories"
+            "Add Experiments",
+            "Add Outputs",
+            "Generate Files"
     };
 
     String[] descriptions ={
 
-            "Connecting with your friends is just\none click way.",
-            "Send messages to your loved ones\n on the go.",
-            "Share your current memory with\n sharing options"
+            "Add as many experiments you want\nin 1 easy step.",
+            "You can also put output images required\nin experiment.",
+            "Generate word files with pre included\nfront page and index."
     };
 
 

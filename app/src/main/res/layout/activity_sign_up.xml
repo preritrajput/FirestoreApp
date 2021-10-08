@@ -162,7 +162,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:hint="Phone number"
+        android:hint="Enrollment number"
         android:textColorHint="@color/discord"
         app:boxStrokeColor="@color/discord"
         app:boxStrokeWidthFocused="2dp"
@@ -172,14 +172,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass"
-        app:startIconDrawable="@drawable/phone"
+        app:startIconDrawable="@drawable/ic_baseline_school_24"
         app:startIconTint="@color/discord">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signup_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone"
+            android:inputType="text"
             android:textColor="@color/discord"
             android:textSize="14sp" />
 

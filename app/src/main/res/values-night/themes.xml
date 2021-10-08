@@ -19,6 +19,10 @@
 
     </style>
 
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="BottomSheetStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
 
         <item name="android:background">#00000000</item>

@@ -39,6 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     final Fragment fragment1=new HomeFragment();
     final Fragment fragment5=new ProfileFragment();
+    final Fragment fragment3=new DocsFragment();
     final FragmentManager fm=getSupportFragmentManager();
     Fragment active=fragment1;
 
@@ -58,6 +59,7 @@ public class DashboardActivity extends AppCompatActivity {
         user=firebaseAuth.getCurrentUser();
 
         fm.beginTransaction().add(R.id.main_container,fragment5,"5").hide(fragment5).commit();
+        fm.beginTransaction().add(R.id.main_container,fragment3,"3").hide(fragment3).commit();
         fm.beginTransaction().add(R.id.main_container,fragment1,"1").commit();
 
         bottomNavigationView =findViewById(R.id.bottom_nav);
@@ -79,6 +81,11 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.home_nav:
                         fm.beginTransaction().hide(active).show(fragment1).commit();
                         active=fragment1;
+                        return true;
+
+                    case R.id.doc_nav:
+                        fm.beginTransaction().hide(active).show(fragment3).commit();
+                        active=fragment3;
                         return true;
 
                     case R.id.profile_nav:

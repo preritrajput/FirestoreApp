@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.core.Repo;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -82,6 +84,8 @@ public class ProfileFragment extends Fragment {
     Uri image_uri;
     String profileOrCoverPhoto;
 
+    LinearLayout linearLayout,linearLayout1,linearLayout2,linearLayout3;
+
     FirebaseDatabase db;
 
     public ProfileFragment() {
@@ -111,6 +115,10 @@ public class ProfileFragment extends Fragment {
         settings=view.findViewById(R.id.settings);
         pd=view.findViewById(R.id.progressBar);
         text=view.findViewById(R.id.text);
+        linearLayout=view.findViewById(R.id.linear_layout);
+        linearLayout1=view.findViewById(R.id.linear_layout1);
+        linearLayout2=view.findViewById(R.id.linear_layout2);
+        linearLayout3=view.findViewById(R.id.linear_layout3);
 
         Query query = collectionReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
@@ -126,7 +134,7 @@ public class ProfileFragment extends Fragment {
 
                     nameTv.setText(name);
                     emailTv.setText(email);
-                    phoneTv.setText("+91 "+phone);
+                    phoneTv.setText(phone);
 
                     try {
                         Glide.with(view.getContext()).load(dp1).centerCrop().into(dp);
@@ -158,6 +166,33 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),FeedbackActivity.class));
+            }
+        });
+
+        linearLayout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ReportActivity.class));
+            }
+        });
+
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), AboutUsActivity.class));
+            }
+        });
+
+        linearLayout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ContactActivity.class));
+            }
+        });
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -309,6 +344,13 @@ public class ProfileFragment extends Fragment {
                     public void onClick(View view) {
                         bottomSheetDialog1.dismiss();
                         startActivity(new Intent(getActivity(),ChangePasswordActivity.class));
+                    }
+                });
+                sheetView.findViewById(R.id.duration).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        bottomSheetDialog1.dismiss();
+                        startActivity(new Intent(getActivity(), ContactActivity.class));
                     }
                 });
                 bottomSheetDialog1.setContentView(sheetView);

@@ -3,22 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.preritrajput.firestoreapp">
 
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_chat"
+        android:icon="@drawable/ic_amidocslogo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_chat"
+        android:roundIcon="@drawable/ic_amidocslogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.FirestoreApp">
-        <activity android:name=".ChatActivity"
+        <activity
+            android:name=".ContactActivity"
             android:screenOrientation="sensorPortrait"></activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".ReportActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SuccessActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".EditSubjectActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".EditExperimentActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ExperimentsActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".AddExperimentActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".CreateActivity"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ChatActivity"
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".ChangePasswordActivity"
             android:screenOrientation="sensorPortrait" />
@@ -59,6 +94,16 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

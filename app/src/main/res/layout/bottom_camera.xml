@@ -33,6 +33,8 @@
         android:background="@color/grey"/>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/gallery"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
@@ -61,6 +63,8 @@
     </LinearLayout>
 
     <LinearLayout
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
         android:id="@+id/camera"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"

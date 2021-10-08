@@ -36,7 +36,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.black_trans80));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.transparent));
         setContentView(R.layout.activity_change_password);
 
         firebaseAuth=FirebaseAuth.getInstance();

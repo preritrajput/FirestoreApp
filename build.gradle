@@ -4,6 +4,10 @@ buildscript {
         google()
         jcenter()
     }
+    ext {
+        poiVersion = '3.17'
+    }
+
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath 'com.google.gms:google-services:4.3.5'
@@ -15,8 +19,12 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://jitpack.io' }
         google()
         jcenter()
+    }
+    configurations.all {
+        resolutionStrategy.force 'org.objenesis:objenesis:2.6'
     }
 }
 
