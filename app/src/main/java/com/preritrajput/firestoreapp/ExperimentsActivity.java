@@ -78,7 +78,7 @@ import java.util.Locale;
 public class ExperimentsActivity extends AppCompatActivity {
 
     private ActivityExperimentsBinding binding;
-    String sem,cc,fn,subjn,uid,email,timeStamp,name,phone,enroll;
+    String sem,cc,fn,subjn,uid,email,timeStamp,name,phone,enroll,uname;
     private Animation animShow, animHide;
 
     FirebaseAuth firebaseAuth;
@@ -122,9 +122,10 @@ public class ExperimentsActivity extends AppCompatActivity {
                 for (DataSnapshot ds : snapshot.getChildren())
                 {
                     enroll=""+ds.child("phone").getValue();
+                    uname=""+ds.child("name").getValue();
                 }
 
-                filePath = new File(getExternalFilesDir(null), name+"_"+enroll+".docx");
+                filePath = new File(getExternalFilesDir(null), uname+"_"+enroll+".docx");
 
                 try {
                     if (!filePath.exists()){
@@ -270,7 +271,7 @@ public class ExperimentsActivity extends AppCompatActivity {
             xwpfRun3.setFontSize(16);
             xwpfRun3.setFontFamily("Times New Roman");
             xwpfRun3.addBreak();
-            xwpfRun3.setText(name);
+            xwpfRun3.setText(uname);
             xwpfRun3.addBreak();
             xwpfRun3.setText(enroll);
             xwpfRun3.addBreak();
@@ -431,7 +432,7 @@ public class ExperimentsActivity extends AppCompatActivity {
 
                 row1 = tab1.createRow(); // Second Row
                 row1.getCell(0).setText("Student Name");
-                row1.getCell(1).setText(name);
+                row1.getCell(1).setText(uname);
                 row1.getCell(2).setText("Enrolment No.");
                 row1.getCell(3).setText(enroll);
 
@@ -534,7 +535,7 @@ public class ExperimentsActivity extends AppCompatActivity {
             xwpfDocument.close();
 
             Intent intent=new Intent(ExperimentsActivity.this,SuccessActivity.class);
-            intent.putExtra("filename",name+"_"+enroll+".docx");
+            intent.putExtra("filename",uname+"_"+enroll+".docx");
             intent.putExtra("subject",subjn);
             intent.putExtra("course",cc);
             startActivity(intent);

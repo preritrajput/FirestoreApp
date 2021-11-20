@@ -196,6 +196,7 @@ public class AddExperimentActivity extends AppCompatActivity {
                                         binding.subjectName.setText("");
                                         binding.courseCode.setText("");
                                         binding.imageIv.setImageURI(null);
+                                        image_uri=null;
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override

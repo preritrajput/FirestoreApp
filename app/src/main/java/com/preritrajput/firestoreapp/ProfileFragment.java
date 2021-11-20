@@ -84,7 +84,7 @@ public class ProfileFragment extends Fragment {
     Uri image_uri;
     String profileOrCoverPhoto;
 
-    LinearLayout linearLayout,linearLayout1,linearLayout2,linearLayout3;
+    LinearLayout linearLayout,linearLayout1,linearLayout2,linearLayout3,linearLayout4;
 
     FirebaseDatabase db;
 
@@ -119,6 +119,7 @@ public class ProfileFragment extends Fragment {
         linearLayout1=view.findViewById(R.id.linear_layout1);
         linearLayout2=view.findViewById(R.id.linear_layout2);
         linearLayout3=view.findViewById(R.id.linear_layout3);
+        linearLayout4=view.findViewById(R.id.linear_layout4);
 
         Query query = collectionReference.orderByChild("email").equalTo(user.getEmail());
         query.addValueEventListener(new ValueEventListener() {
@@ -191,6 +192,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), ContactActivity.class));
+            }
+        });
+
+        linearLayout4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=com.preritrajput.firestoreapp");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
 
